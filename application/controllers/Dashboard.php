@@ -12,10 +12,18 @@ class Dashboard extends CI_Controller {
 
 	public function index()
 	{
+        $this->load->helper('form');
+        //Load Customer List
         $customerList = $this->DashboardModel->get_customer_list();
+        $data = array();
+        $data['content'] = '/dashboard/content_view';
 
-        print_r($customerList);
+        $data['customerlist'] = $customerList;
 
-		$this->load->view('/shared/index');
+        $data['addition_script'] = '/dashboard/select_script_view';
+
+
+
+		$this->load->view('/shared/index', $data);
 	}
 }
