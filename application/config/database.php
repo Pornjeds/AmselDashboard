@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | The $query_builder variables lets you determine whether or not to load
 | the query builder class.
 */
-$active_group = 'default';
+$active_group = 'mssql';
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -94,3 +94,43 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+$db['mssql'] = array(
+	'dsn'	=> '',
+	'hostname' => 'localhost\sqlexpress',
+	'username' => 'sa',
+	'password' => 'P@ssw0rd',
+	'database' => 'SALEPRO',
+	'dbdriver' => 'sqlsrv',
+	'dbprefix' => '',
+	'pconnect' => FALSE,
+	'db_debug' => (ENVIRONMENT !== 'production'),
+	'cache_on' => FALSE,
+	'cachedir' => '',
+	'char_set' => 'utf8',
+	'dbcollat' => 'utf8_general_ci',
+	'swap_pre' => '',
+	'encrypt' => FALSE,
+	'compress' => FALSE,
+	'stricton' => FALSE,
+	'failover' => array(),
+	'save_queries' => TRUE
+);
+
+// /* EXTRACT OF database.php */
+// $db['default']['hostname'] = "localhost"; // or put the IP of your SQL Server Instance
+// $db['default']['port'] = 1433; // or the port you configured on step 6
+// $db['default']['username'] = 'sa';
+// $db['default']['password'] = 'P@ssw0rd';
+// $db['default']['database'] = 'SALEPRO';
+// $db['default']['dbdriver'] = 'sqlsrv';
+// $db['default']['dbprefix'] = '';
+// $db['default']['pconnect'] = FALSE; // Pay attention to this, codeigniter makes true for default
+// $db['default']['db_debug'] = TRUE;
+// $db['default']['cache_on'] = FALSE;
+// $db['default']['cachedir'] = '';
+// $db['default']['char_set'] = 'utf8';
+// $db['default']['dbcollat'] = 'utf8_general_ci';
+// $db['default']['swap_pre'] = '';
+// $db['default']['autoinit'] = TRUE;
+// $db['default']['stricton'] = FALSE;

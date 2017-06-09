@@ -1,0 +1,12 @@
+  SELECT	C.CusCd CUSTOMERID, 
+			C.CusNam CUSTOMERNAME, 
+			SUM(I.NetAmt) NETVALUE, 
+			-- I.AddDat ADDDATE,
+			MONTH(I.AddDat) ADDMONTH,
+			YEAR(I.AddDat) ADDYEAR
+  FROM [aArs_Cus] C
+  JOIN [aArs_Invh] I
+  ON C.CusCd = I.CusCd
+  WHERE C.CusCd = '2200609'
+  GROUP BY MONTH(I.AddDat), C.CusCd, C.CusNam, I.AddDat
+  ORDER BY I.AddDat DESC
