@@ -3,7 +3,8 @@
 
   $(document).ready(function() {
       $('#dataTables-customer-data').DataTable({
-          responsive: true
+          responsive: true,
+          ordering: false
       });
   });
 
