@@ -7,20 +7,21 @@
     <div class="row">
         <div class="col-lg-4">
             <div class="panel panel-primary">
-                <div class="panel-heading">
-                    เลือกร้าน
-                </div>
+                
                 <div class="panel-body">
                     <?php
-                    $attributes = array('role' => 'form', 'id' => 'customerform');
+                    $attributes = array('role' => 'form', 'id' => 'customerform', 'onsubmit' => 'return validateForm()');
                     echo form_open('dashboard/index', $attributes);
                     ?>
                     <div class="form-group">
-                        <label>Selects</label>
+                        <label>ร้าน</label>
                         <select class="form-control" id="customer-list" name="customer">
                             <?php
                             if($customerlist)
                             {
+
+                              echo '<option value="0">เลือกร้าน</option>';
+
                                 $province = '';
                                 foreach($customerlist as $customer)
                                 {
@@ -88,8 +89,6 @@
                       <p class="form-control-static"><?php echo $customerdetail->CONTACT; ?></p>
                   </div>
               </div>
-            </div>
-            <div class="panel-footer">
             </div>
         </div>
       </div>

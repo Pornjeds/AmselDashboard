@@ -6,4 +6,12 @@
           responsive: true
       });
   });
+
+  function validateForm() {
+    var customerid = $("#customer-list").val();
+    if (customerid == "0") {
+        alert("กรุณาเลือกร้าน");
+        return false;
+    }
+}
 </script>
