@@ -17,12 +17,22 @@ class Dashboard extends CI_Controller {
         $customerList = $this->DashboardModel->get_customer_list();
         $data = array();
         $data['content'] = '/dashboard/content_view';
-
         $data['customerlist'] = $customerList;
-
         $data['addition_script'] = '/dashboard/select_script_view';
 
+        if($this->input->post_get('customer'))
+        {
+            $customerid = $this->input->post_get('customer');
+            $data['customerid'] = $customerid;
 
+            //Customer Detail
+            $customerDetail = $this->DashboardModel->get_customer_by_customer_id($customerid);
+            $data['customerdetail'] = $customerDetail;
+            //Invoice List
+            $invoiceList = $this->DashboardModel->get_invoice_by_customerid($customerid);
+
+            $data['invoicelist'] = $invoiceList;
+        }
 
 		$this->load->view('/shared/index', $data);
 	}
